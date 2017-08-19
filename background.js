@@ -47,7 +47,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-page-google",
   title: browser.i18n.getMessage("contextMenuItemResurrectGoogle"),
-  icons: { 16: "icons/cacheicons/google.png" },
   contexts: ["all"],
   parentId: "resurrect-page"
 }, onCreated);
@@ -55,7 +54,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-page-googletext",
   title: browser.i18n.getMessage("contextMenuItemResurrectGoogleText"),
-  icons: { 16: "icons/cacheicons/google.png" },
   contexts: ["all"],
   parentId: "resurrect-page"
 }, onCreated);
@@ -63,7 +61,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-page-archive",
   title: browser.i18n.getMessage("contextMenuItemResurrectArchive"),
-  icons: { 16: "icons/cacheicons/waybackmachine.png" },
   contexts: ["all"],
   parentId: "resurrect-page"
 }, onCreated);
@@ -71,7 +68,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-page-archiveis",
   title: browser.i18n.getMessage("contextMenuItemResurrectArchiveIs"),
-  icons: { 16: "icons/cacheicons/archiveis.png" },
   contexts: ["all"],
   parentId: "resurrect-page"
 }, onCreated);
@@ -79,7 +75,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-page-webcitation",
   title: browser.i18n.getMessage("contextMenuItemResurrectWebcitation"),
-  icons: { 16: "icons/cacheicons/webcitation.png" },
   contexts: ["all"],
   parentId: "resurrect-page"
 }, onCreated);
@@ -89,7 +84,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-link-google",
   title: browser.i18n.getMessage("contextMenuItemResurrectGoogle"),
-  icons: { 16: "icons/cacheicons/google.png" },
   contexts: ["all"],
   parentId: "resurrect-link"
 }, onCreated);
@@ -97,7 +91,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-link-googletext",
   title: browser.i18n.getMessage("contextMenuItemResurrectGoogleText"),
-  icons: { 16: "icons/cacheicons/google.png" },
   contexts: ["all"],
   parentId: "resurrect-link"
 }, onCreated);
@@ -105,7 +98,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-link-archive",
   title: browser.i18n.getMessage("contextMenuItemResurrectArchive"),
-  icons: { 16: "icons/cacheicons/waybackmachine.png" },
   contexts: ["all"],
   parentId: "resurrect-link"
 }, onCreated);
@@ -113,7 +105,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-link-archiveis",
   title: browser.i18n.getMessage("contextMenuItemResurrectArchiveIs"),
-  icons: { 16: "icons/cacheicons/archiveis.png" },
   contexts: ["all"],
   parentId: "resurrect-link"
 }, onCreated);
@@ -121,7 +112,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-link-webcitation",
   title: browser.i18n.getMessage("contextMenuItemResurrectWebcitation"),
-  icons: { 16: "icons/cacheicons/webcitation.png" },
   contexts: ["all"],
   parentId: "resurrect-link"
 }, onCreated);
@@ -131,7 +121,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-selection-google",
   title: browser.i18n.getMessage("contextMenuItemResurrectGoogle"),
-  icons: { 16: "icons/cacheicons/google.png" },
   contexts: ["all"],
   parentId: "resurrect-selection"
 }, onCreated);
@@ -139,7 +128,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-selection-googletext",
   title: browser.i18n.getMessage("contextMenuItemResurrectGoogleText"),
-  icons: { 16: "icons/cacheicons/google.png" },
   contexts: ["all"],
   parentId: "resurrect-selection"
 }, onCreated);
@@ -147,7 +135,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-selection-archive",
   title: browser.i18n.getMessage("contextMenuItemResurrectArchive"),
-  icons: { 16: "icons/cacheicons/waybackmachine.png" },
   contexts: ["all"],
   parentId: "resurrect-selection"
 }, onCreated);
@@ -155,7 +142,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-selection-archiveis",
   title: browser.i18n.getMessage("contextMenuItemResurrectArchiveIs"),
-  icons: { 16: "icons/cacheicons/archiveis.png" },
   contexts: ["all"],
   parentId: "resurrect-selection"
 }, onCreated);
@@ -163,7 +149,6 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "resurrect-selection-webcitation",
   title: browser.i18n.getMessage("contextMenuItemResurrectWebcitation"),
-  icons: { 16: "icons/cacheicons/webcitation.png" },
   contexts: ["all"],
   parentId: "resurrect-selection"
 }, onCreated);

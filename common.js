@@ -33,6 +33,36 @@ function genWebCiteURL (url) {
   return 'http://webcitation.org/query.php?url='+encodeURIComponent(url);
 }
 
+function genBingURL (url) {
+  url_no_schema = url.replace(/^https?:\/\//, '');
+  // bing sometimes has only either the http or https version indexed, so try both.
+  search = 'url:http://'+url_no_schema+' | url:https://'+url_no_schema;
+  try {
+    var request = new XMLHttpRequest(); //TODO: get away from synchronous request
+    request.open('GET', 'https://www.bing.com/search?q='+encodeURIComponent(search), false);
+    request.send(null);
+    
+    if (request.status === 200) {
+      parser = new DOMParser();
+      doc = parser.parseFromString(request.responseText, "text/html");
+      //search result (yes, singular) will, if a cache is available, have a div that has the unguessable ids for the cache in it's `u'-attribute. we build the url from that, as the "cached page" link gets created by some javascript at run time :|
+      // if ads are displayed, the aren't cached. 
+      attributionDiv = doc.querySelector('div.b_attribution[u]');
+      if (attributionDiv == null) {
+        throw ("Bing: can't find div.b_attribution[u]'");
+      }
+      cacheSecrets = attributionDiv.getAttribute('u').split('|');
+      return 'http://cc.bingj.com/cache.aspx?d='+cacheSecrets[2]+'&w='+cacheSecrets[3];
+    } else {
+      throw ('Response status: '+request.status);
+    }
+  } catch (e) {
+    console.log (e);
+    //alert (e);
+    //on any error, just return the search results. 
+    return 'https://www.bing.com/search?q='+encodeURIComponent(search);
+  }
+}
 function setOpenIn (where) {
   openIn = where;
   browser.storage.local.set({openIn: openIn}).then(null, onError);
@@ -57,6 +87,7 @@ function update_context_radios() {
 }
 
 function goToURL (url, where) {
+  if (url === false) return;
   switch (Number(where)) {
   case openInEnum.CURRENT_TAB:
     browser.tabs.update({ "url": url});

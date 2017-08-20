@@ -30,6 +30,7 @@
   },
 
   "permissions": [
+    "https://www.bing.com/*",
     "storage",
     "contextMenus",
     "tabs",

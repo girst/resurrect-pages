@@ -91,6 +91,41 @@ function genYandexURL (url) {
   }
 }
 
+function genGBlastURL (url, recurse=true) {
+  search = 'url:'+url;
+  try {
+    var request = new XMLHttpRequest(); //TODO: get away from synchronous request                 rxieu=secret sauce to not get ajax'd
+    request.open('GET', 'https://www.gigablast.com/search?c=main&q='+encodeURIComponent(search)+'&rxieu=370893600&format=xml', false);
+    request.send(null);
+
+    if (request.status === 200) {
+      resultlist = request.responseXML.getElementsByTagName('response')[0].getElementsByTagName('result');
+      if (resultlist.length == 0) {
+        if (recurse) {
+          console.log("gigablast: trying again with different protocol");
+          if (url.match (/^https;/)) {
+            url2=url.replace (/^https:/, 'http:');
+          }
+          else {
+            url2=url.replace(/^http:/, 'https:');
+          }
+          return genGBlastURL(url2, false);
+        } else {
+          throw ("gigablast: can't find link to cache'");
+        }
+      } else {
+        console.log( resultlist[0].getElementsByTagName('docId')[0].innerHTML);
+        return 'https://www.gigablast.com/get?c=main&d='+resultlist[0].getElementsByTagName('docId')[0].innerHTML;
+      }
+    } else {
+      throw ('Response status: '+request.status);
+    }
+  } catch (e) {
+    console.log (e);
+    //on any error, just return the search results. 
+    return 'https://www.gigablast.com/search?c=main&q='+encodeURIComponent(search)+'&rxieu=370893600';
+  }
+}
 
 function setOpenIn (where) {
   openIn = where;

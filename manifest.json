@@ -32,6 +32,7 @@
   "permissions": [
     "https://www.bing.com/*",
     "https://www.yandex.com/*",
+    "https://www.gigablast.com/*",
     "storage",
     "contextMenus",
     "tabs",

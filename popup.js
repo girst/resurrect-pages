@@ -44,5 +44,6 @@ onError("can't read openIn");
     document.querySelector("#resurrectWithWebCite").onclick         = function(){goToURL (genWebCiteURL   (pageURL), openIn);window.close()};
     document.querySelector("#resurrectWithBing").onclick         = function(){goToURL (genBingURL   (pageURL), openIn);window.close()};
     document.querySelector("#resurrectWithYandex").onclick         = function(){goToURL (genYandexURL   (pageURL), openIn);window.close()};
+    document.querySelector("#resurrectWithGigablast").onclick         = function(){goToURL (genGBlastURL   (pageURL), openIn);window.close()};
   }, onError);
 });

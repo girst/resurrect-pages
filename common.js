@@ -63,6 +63,35 @@ function genBingURL (url) {
     return 'https://www.bing.com/search?q='+encodeURIComponent(search);
   }
 }
+
+function genYandexURL (url) {
+  url_no_schema = url.replace(/^https?:\/\//, '');
+  search = 'url:http://'+url_no_schema+' | url:https://'+url_no_schema;
+
+  try {
+    var request = new XMLHttpRequest(); //TODO: get away from synchronous request
+    request.open('GET', 'https://www.yandex.com/search/?text='+encodeURIComponent(search), false);
+    request.send(null);
+    
+    if (request.status === 200) {
+      parser = new DOMParser();
+      doc = parser.parseFromString(request.responseText, "text/html");
+      retURL = doc.querySelector('a[href^="https://hghltd.yandex.net/yandbtm"]');
+      if (retURL == null) {
+        throw ("Yandex: can't find link to cache'");
+      }
+      return retURL.getAttribute('href');
+    } else {
+      throw ('Response status: '+request.status);
+    }
+  } catch (e) {
+    console.log (e);
+    //on any error, just return the search results. 
+    return 'https://www.yandex.com/search/?text='+encodeURIComponent(search);
+  }
+}
+
+
 function setOpenIn (where) {
   openIn = where;
   browser.storage.local.set({openIn: openIn}).then(null, onError);
